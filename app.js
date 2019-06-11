@@ -18,8 +18,8 @@ app.get('/apps', (req, res) => {
       res.status(400).send('Sort must be either by rating or app');
     }
     results = apps.sort((a, b) => {
-      if(a[sort] < b[sort]) {return -1;}
-      if(a[sort] > b[sort]) {return 1;}
+      if(a[sort] > b[sort]) {return -1;}
+      if(a[sort] < b[sort]) {return 1;}
       return 0;
     });
   }
@@ -34,6 +34,4 @@ app.get('/apps', (req, res) => {
     .json(results);
 });
 
-app.listen(8000, () => {
-  console.log('Server is listening on PORT:8000');
-});
+module.exports = app;
